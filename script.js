@@ -142,3 +142,9 @@ function updateBackground(description) {
         body.style.transition = '';
     }, 2000);
 }
+document.getElementById("city").addEventListener("keydown", function(event) {
+    if(event.keyCode === 13) {
+        event.preventDefault();
+        getWeather();
+    }
+});
