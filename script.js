@@ -100,26 +100,45 @@ function showImage() {
     weatherIcon.style.display = 'block'; // Make the image visible once it's loaded
 }
 function updateBackground(description) {
-    console.log(description);
+    const body = document.body;
+    const currentBackground = body.style.backgroundImage;
 
-        switch(description) {
-            case 'clear sky':
-                document.body.style.backgroundImage = "url('/images/sunny-clear.jpg')";
-                break;
-            case 'few clouds':
-            case 'scattered clouds':
-            case 'broken clouds':
-            case 'overcast clouds':
-                document.body.style.backgroundImage = "url('/images/cloudy-overcast-sky.jpg')";
-                break;
-            case 'mist':
-                document.body.style.backgroundImage = "url('/images/foggy-road.jpg')";
-                break;
-            case 'light rain':
-                document.body.style.backgroundImage = "url('/images/rain.jpg')";
-                break;
-            default:
-                document.body.style.backgroundImage = "url('/images/sunny-clear.jpg')";
-                break;
-        }
+    let nextBackground;
+    switch(description) {
+        case 'clear sky':
+            nextBackground = "url('/images/sunny-clear.jpg')";
+            break;
+        case 'few clouds':
+        case 'scattered clouds':
+        case 'broken clouds':
+        case 'overcast clouds':
+            nextBackground = "url('/images/cloudy-overcast-sky.jpg')";
+            break;
+        case 'mist':
+            nextBackground = "url('/images/foggy-road.jpg')";
+            break;
+        case 'light rain':
+            nextBackground = "url('/images/rain.webp')";
+            break;
+        case 'heavy rain':
+            nextBackground = "url('/images/heavy-rain.jpg')";
+            break;
+        case 'thunderstorm':
+            nextBackground = "url('/images/thunder-storm.jpg')";
+            break;
+        case 'snow':
+        case 'light snow':
+            nextBackground = "url('/images/snow.jpg')";
+            break;
+        default:
+            nextBackground = "url('/images/sunny-clear.jpg')";
+            break;
+    }
+
+    body.style.transition = 'background-image 1s ease-in-out';
+    body.style.backgroundImage = nextBackground;
+
+    setTimeout(() => {
+        body.style.transition = '';
+    }, 2000);
 }

@@ -31,10 +31,13 @@ input {
     width: calc(100% - 16px);
     padding: 8px;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 50px;
     border: 1px solid white;
     margin-top: 20px;
-    background: transparent;
+    background: white;
+}
+input:focus {
+    outline: 0;
 }
 
 button {
@@ -54,6 +57,7 @@ button:hover {
     background: #8b48d7;
     color: white;
     background: #333;
+    border: none;
 }
 
 #temp-div p {
@@ -72,13 +76,27 @@ button:hover {
     margin-bottom: 0;
     display: none;
 }
-
 #hourly-forecast {
+    padding-top: 20px;
     margin-top: 50px;
     overflow-x: auto;
     white-space: nowrap;
     display: flex;
     justify-content: space-between;
+}
+
+#hourly-forecast::-webkit-scrollbar {
+    height: 8px;
+}
+  
+#hourly-forecast::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+}
+  
+#hourly-forecast::-webkit-scrollbar-thumb {
+    background-color: rgb(130, 129, 129);
+    border-radius: 100px;
 }
 
 .hourly-item {
