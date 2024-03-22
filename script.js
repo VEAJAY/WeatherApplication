@@ -1,3 +1,4 @@
+// GETTING ALL WEATHER DATA
 function getWeather() {
     const apiKey = '357eb76ccbfc0bc8c134524e48481e75';
     const city = document.getElementById('city').value;
@@ -111,6 +112,8 @@ function updateBackground(description) {
         case 'few clouds':
         case 'scattered clouds':
         case 'broken clouds':
+            nextBackground = "url('/images/broken-clouds.jpg')";
+            break;
         case 'overcast clouds':
             nextBackground = "url('/images/cloudy-overcast-sky.jpg')";
             break;
@@ -142,6 +145,8 @@ function updateBackground(description) {
         body.style.transition = '';
     }, 2000);
 }
+
+// SEARCH BAR
 document.getElementById("city").addEventListener("keydown", function(event) {
     if(event.keyCode === 13) {
         event.preventDefault();
